@@ -1,0 +1,16 @@
+[
+    {
+        "title": "La Teoría de la Relatividad",
+        "author": "Dr. Loco",
+        "article": "La teoría de la relatividad fue desarrollada por Albert Einstein a principios del siglo XX...",
+        "category": "Física",
+        "created": "2024-07-22"
+    },
+    {
+        "title": "El ADN y la Genética",
+        "author": "Dr. Loco",
+        "article": "El ADN es una molécula que contiene las instrucciones genéticas utilizadas en el desarrollo y funcionamiento de todos los organismos vivos conocidos...",
+        "category": "Biología",
+        "created": "2024-07-22"
+    }
+]
