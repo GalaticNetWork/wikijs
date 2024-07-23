@@ -2,24 +2,22 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('articles.json')
         .then(response => response.json())
         .then(data => {
-            displayCategories(data);
+            displayTableOfContents(data);
             displayArticles(data);
         })
         .catch(error => console.error('Error al cargar los artículos:', error));
 });
 
-function displayCategories(articles) {
-    const categoryIndex = document.getElementById('category-index');
-    const categories = [...new Set(articles.map(article => article.category))];
+function displayTableOfContents(articles) {
+    const tableOfContents = document.getElementById('table-of-contents');
 
-    categories.forEach(category => {
+    articles.forEach((article, index) => {
         const li = document.createElement('li');
         const a = document.createElement('a');
-        a.href = "#";
-        a.textContent = category;
-        a.addEventListener('click', () => filterByCategory(category, articles));
+        a.href = `#article-${index}`;
+        a.textContent = article.title;
         li.appendChild(a);
-        categoryIndex.appendChild(li);
+        tableOfContents.appendChild(li);
     });
 }
 
@@ -27,8 +25,9 @@ function displayArticles(articles) {
     const articleContent = document.getElementById('article-content');
     articleContent.innerHTML = '';
 
-    articles.forEach(article => {
+    articles.forEach((article, index) => {
         const articleElement = document.createElement('article');
+        articleElement.id = `article-${index}`;
 
         const title = document.createElement('h2');
         title.textContent = article.title;
@@ -48,9 +47,4 @@ function displayArticles(articles) {
 
         articleContent.appendChild(articleElement);
     });
-}
-
-function filterByCategory(category, articles) {
-    const filteredArticles = articles.filter(article => article.category === category);
-    displayArticles(filteredArticles);
 }
