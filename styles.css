@@ -31,3 +31,16 @@ header {
     border-radius: 4px;
     cursor: pointer;
 }
+footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-top: 4px solid #0073e6;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
